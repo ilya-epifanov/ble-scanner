@@ -1,4 +1,4 @@
-[target.arm-unknown-linux-gnueabihf.dbus]
+[target.arm-unknown-linux-gnueabi.dbus]
 rustc-link-search = ["native=/usr/lib/arm-linux-gnueabihf", "native=/lib/arm-linux-gnueabihf"]
 rustc-link-lib = ["dbus-1", "systemd", "lzma", "lz4", "gcrypt", "gpg-error"]
 
