@@ -1,5 +1,5 @@
-[target.arm-unknown-linux-gnueabihf]
-image = "smartislav/ble-scanner-cross:arm-unknown-linux-gnueabihf-0.2.1"
+[target.arm-unknown-linux-gnueabi]
+image = "smartislav/ble-scanner-cross:arm-unknown-linux-gnueabi-0.2.1"
 
 [target.aarch64-unknown-linux-gnu]
 image = "smartislav/ble-scanner-cross:aarch64-unknown-linux-gnu-0.2.1"
