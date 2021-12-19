@@ -1,0 +1,25 @@
+[package]
+edition = "2021"
+name = "ble-scanner"
+version = "0.1.0"
+
+[dependencies]
+clap = { version = "3.0.0-rc.7", features = ["derive"] }
+log = "0.4"
+pretty_env_logger = "0.4"
+anyhow = { version = "1", features = ["backtrace"] }
+
+bluer = "0.13"
+rumqttc = "0.10"
+tokio = { version = "1", features = ["macros", "time", "rt"] }
+futures = "0.3"
+
+serde_json = "1"
+
+
+[profile.release]
+opt-level = "z"
+debug = false
+lto = true
+incremental = false
+codegen-units = 1

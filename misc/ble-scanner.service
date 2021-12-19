@@ -1,0 +1,12 @@
+[Unit]
+Description=Bluetooth LE scanner
+
+[Service]
+WorkingDirectory=/opt/ble-scanner
+ExecStart=/opt/ble-scanner/bin/ble-scanner --mqtt-host localhost --mqtt-username ble-scanner --mqtt-password ble-scanner-password --mqtt-prefix ble-scanner --beacon 01:23:45:67:89:AB
+Environment=RUST_BACKTRACE=full
+Environment=RUST_LOG=info
+Restart=always
+
+[Install]
+WantedBy=default.target

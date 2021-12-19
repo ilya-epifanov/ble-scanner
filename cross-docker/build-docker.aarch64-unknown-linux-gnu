@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$(dirname $0)/build-docker aarch64-unknown-linux-gnu aarch64-linux-gnueabihf arm64

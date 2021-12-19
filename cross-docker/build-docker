@@ -1,0 +1,10 @@
+#!/bin/sh
+
+BASEDIR=$(dirname $0)
+DOCKERFILE=$BASEDIR/Dockerfile
+BUILD_ARGS="--build-arg RUST_TARGET=$1 --build-arg GCC_TARGET=$2 --build-arg DEB_ARCH=$3"
+
+# VERSION is based on the base docker image version
+VERSION=0.2.1
+
+docker build --network=host -f $DOCKERFILE $BUILD_ARGS --tag smartislav/ble-scanner-cross:$1-$VERSION $BASEDIR
