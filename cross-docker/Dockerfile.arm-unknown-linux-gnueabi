@@ -1,5 +1,5 @@
 ARG RUST_TARGET
-FROM rustembedded/cross:${RUST_TARGET}-0.2.1
+FROM smartislav/cross:${RUST_TARGET}-0.2.1-debian
 
 ARG DEB_ARCH
 RUN dpkg --add-architecture $DEB_ARCH
