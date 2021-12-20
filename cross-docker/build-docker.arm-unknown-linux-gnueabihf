@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$(dirname $0)/build-docker arm-unknown-linux-gnueabihf arm-linux-gnueabihf armhf

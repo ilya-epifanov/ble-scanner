@@ -7,3 +7,5 @@ tar zcf target/ble-scanner.$ARCH.tar.gz \
   misc/ble-scanner.service \
   --transform "s,^target/$ARCH/release/ble-scanner,/opt/ble-scanner/bin/ble-scanner," \
   target/$ARCH/release/ble-scanner
+
+cp target/$ARCH/release/ble-scanner target/ble-scanner.$ARCH
