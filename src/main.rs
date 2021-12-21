@@ -1,7 +1,7 @@
 use bluer::{AdapterEvent, Address, DeviceEvent, DeviceProperty};
 use futures::{StreamExt, pin_mut};
 use clap::Parser;
-use log::{info, warn};
+use log::{info, error};
 use rumqttc::{MqttOptions, AsyncClient, QoS};
 use serde_json::json;
 
@@ -108,16 +108,9 @@ async fn main() -> Result<(), anyhow::Error> {
         
                 report_rssi(&mut client, &opts.mqtt_prefix, &addr, Some(rssi)).await?
             }
-            e = eventloop.poll() => {
-                match e? {
-                    rumqttc::Event::Incoming(e) => {
-                        match e {
-                            rumqttc::Packet::Connect(_) => info!("connected to MQTT"),
-                            rumqttc::Packet::Disconnect => warn!("disconnected from MQTT"),
-                            _ => {},
-                        }
-                    },
-                    _ => {},
+            r = eventloop.poll() => {
+                if let Err(e) = r {
+                    error!("MQTT client error: {}", e);
                 }
             }
             else => break
